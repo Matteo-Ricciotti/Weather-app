@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
-
 import axios from 'axios';
+
+import API_KEY from '../../API_KEY';
+
+import { useDispatch } from 'react-redux';
+import { set } from '../redux/weatherSlice';
 
 interface Coords {
 	lat: number;
@@ -12,6 +16,8 @@ const useWeather = (coordinates: Coords) => {
 	const [loading, setLoading] = useState<boolean>(false);
 	const [data, setData] = useState(null);
 
+	const dispatch = useDispatch();
+
 	const fetchData = async () => {
 		const controller = new AbortController();
 
@@ -21,14 +27,13 @@ const useWeather = (coordinates: Coords) => {
 
 		try {
 			const { data: weather } = await axios({
-				url: `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${
-					coordinates.lat
-				}&appid=${process.env.API_KEY!}`,
+				url: `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lat}&appid=${API_KEY}`,
 				method: 'GET',
 				signal: controller.signal
 			});
 
 			setData(weather);
+			dispatch(set(weather));
 		} catch (err) {
 			console.error(err);
 			setError(true);

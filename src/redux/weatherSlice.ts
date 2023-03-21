@@ -1,11 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export default createSlice({
+const weatherSlice = createSlice({
 	name: 'weather',
-	initialState: {},
+	initialState: {
+		weather: {}
+	},
 	reducers: {
 		set: (state, action) => {
-			state = action.payload;
+			state.weather = action.payload;
 		}
 	}
 });
+
+export const { set } = weatherSlice.actions;
+
+export default weatherSlice.reducer;
