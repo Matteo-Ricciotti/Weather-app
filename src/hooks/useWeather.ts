@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react';
 
 import axios from 'axios';
 
-const API_KEY = '6506a68d9acfc9e64bfd2456ebd7d8be';
-
 interface Coords {
 	lat: number;
 	lon: number;
@@ -23,7 +21,9 @@ const useWeather = (coordinates: Coords) => {
 
 		try {
 			const { data: weather } = await axios({
-				url: `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lat}&appid=${API_KEY}`,
+				url: `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${
+					coordinates.lat
+				}&appid=${process.env.API_KEY!}`,
 				method: 'GET',
 				signal: controller.signal
 			});
