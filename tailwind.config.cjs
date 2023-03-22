@@ -8,6 +8,9 @@ module.exports = {
 			},
 			boxShadow: {
 				primary: '0 2px 10px 0 gray'
+			},
+			screens: {
+				desktop: { min: '768px' }
 			}
 		}
 	},

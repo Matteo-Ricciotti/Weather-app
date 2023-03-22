@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import useWeather from './hooks/useWeather';
 import Page from './components/Page';
+import { coordinates } from './utility/constants';
 
 const Home = lazy(() => import('./pages/Home'));
 const City = lazy(() => import('./pages/City'));

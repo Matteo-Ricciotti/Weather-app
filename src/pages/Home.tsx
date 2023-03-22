@@ -1,25 +1,10 @@
 import { FC, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import CityOverview from '../components/CityOverview';
 import useWindow from '../hooks/useWindow';
 
-type UnkProperties = {
-	[key: string]: any;
-};
-
-export interface State {
-	weather: {
-		turin: UnkProperties;
-		rome: UnkProperties;
-		london: UnkProperties;
-	};
-}
-
 const Home: FC = () => {
-	const weather = useSelector((state: State) => state.weather);
-
 	const navigate = useNavigate();
 	const windowSize = useWindow();
 
@@ -39,21 +24,9 @@ const Home: FC = () => {
 				</div>
 			</section>
 			<section className='w-full flex flex-col gap-5'>
-				<CityOverview
-					city='Turin'
-					weather={weather.turin.weather}
-					temperature={weather.turin.main?.temp}
-				/>
-				<CityOverview
-					city='Rome'
-					weather={weather.rome.weather}
-					temperature={weather.rome.main?.temp}
-				/>
-				<CityOverview
-					city='London'
-					weather={weather.london.weather}
-					temperature={weather.london.main?.temp}
-				/>
+				<CityOverview city='turin' />
+				<CityOverview city='rome' />
+				<CityOverview city='london' />
 			</section>
 		</main>
 	);
