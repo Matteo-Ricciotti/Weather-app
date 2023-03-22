@@ -2,7 +2,14 @@
 module.exports = {
 	content: ['./*.html', './src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
-		extend: {}
+		extend: {
+			colors: {
+				'text-primary': 'rgb(36,55,116)'
+			},
+			boxShadow: {
+				primary: '0 2px 10px 0 gray'
+			}
+		}
 	},
 	plugins: []
 };

@@ -3,11 +3,15 @@ import { createSlice } from '@reduxjs/toolkit';
 const weatherSlice = createSlice({
 	name: 'weather',
 	initialState: {
-		weather: {}
+		turin: {},
+		rome: {},
+		london: {}
 	},
 	reducers: {
 		set: (state, action) => {
-			state.weather = action.payload;
+			state.turin = action.payload.turin;
+			state.rome = action.payload.rome;
+			state.london = action.payload.london;
 		}
 	}
 });
