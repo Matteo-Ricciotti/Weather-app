@@ -1,14 +1,14 @@
 export const coordinates = {
 	turin: {
-		lat: 45.12,
-		lon: 7.74
+		lat: 45.116,
+		lon: 7.742
 	},
 	rome: {
-		lat: 41.9,
-		lon: 12.5
+		lat: 41.902,
+		lon: 12.496
 	},
 	london: {
-		lat: 51.51,
-		lon: -0.12
+		lat: 51.509,
+		lon: -0.118
 	}
 };

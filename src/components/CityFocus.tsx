@@ -15,7 +15,7 @@ const CityFocus: FC<Props> = ({ city }) => {
 	const type = weather[city].weather && weather[city].weather[0].main;
 
 	return (
-		<div className='flex items-center py-16 pr-80 h-1/2 from-[rgb(188,214,239)] to-[rgb(137,192,223)] bg-gradient-to-br rounded-3xl'>
+		<div className='flex items-center py-16 pr-80 h-1/2 shadow-primary from-[rgb(188,214,239)] to-[rgb(137,192,223)] bg-gradient-to-br rounded-3xl'>
 			<div className='relative -left-10 flex flex-col items-center gap-8 px-5 py-8 rounded-tr-3xl rounded-br-3xl bg-[rgb(99,148,237)]'>
 				<span className='text-4xl font-bold'>
 					{(weather[city].main?.temp - 273.15).toFixed(0)}°
